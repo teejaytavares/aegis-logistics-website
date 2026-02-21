@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aegis Logistics — Precision in Motion. Protection in Every Mile.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --navy-mid: #111827;
+    --navy-light: #1c2a40;
+    --slate: #1e3a5f;
+    --steel: #2d5a8e;
+    --accent: #e8a020;
+    --accent-dim: #b07a10;
+    --white: #f0f4f8;
+    --muted: #8fa3b8;
+    --text: #c8d8e8;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ——— NAV ——— */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .shield-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .nav-wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+
+  .nav-wordmark span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.25rem;
+    font-weight: 600 !important;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+  .nav-cta:hover { background: #f5b030; color: var(--navy) !important; }
+
+  /* ——— HERO ——— */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 4rem 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(45,90,142,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 90% 80%, rgba(232,160,32,0.06) 0%, transparent 60%),
+      linear-gradient(160deg, #0a0f1e 0%, #0d1625 50%, #0a0f1e 100%);
+  }
+
+  /* Grid lines */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-headline .accent { color: var(--accent); }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #f5b030; transform: translateY(-1px); }
+
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 5rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    text-align: right;
+    border-right: 2px solid var(--accent);
+    padding-right: 1.25rem;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+
+  /* ——— SECTIONS ——— */
+  section { padding: 6rem 4rem; }
+
+  .section-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  /* ——— PRINCIPLES ——— */
+  #principles {
+    background: var(--navy-mid);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    margin-top: 4rem;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .principle-card {
+    background: var(--navy-mid);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .principle-card:hover { background: var(--navy-light); }
+
+  .principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .principle-card:hover::before { transform: scaleX(1); }
+
+  .principle-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(232,160,32,0.12);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+  .principle-card:hover .principle-num { color: rgba(232,160,32,0.25); }
+
+  .principle-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .principle-body {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ——— SAFETY ——— */
+  #safety {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .safety-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(45,90,142,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .safety-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .safety-philosophy {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .safety-philosophy::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: -1rem;
+    left: 2rem;
+    line-height: 1;
+  }
+
+  .safety-philosophy blockquote {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--white);
+    line-height: 1.75;
+    font-weight: 300;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .safety-commitments {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .commitment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .commitment-item::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ——— OPERATIONS ——— */
+  #operations { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    background: var(--border);
+  }
+
+  .ops-card {
+    background: var(--navy-mid);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ops-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .ops-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .ops-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .ops-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .ops-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  /* ——— DRIVE ——— */
+  #drive { position: relative; overflow: hidden; }
+
+  .drive-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(45,90,142,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 60% at 0% 100%, rgba(232,160,32,0.05) 0%, transparent 60%);
+  }
+
+  .drive-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .drive-offer, .drive-expect {
+    margin-top: 2rem;
+  }
+
+  .drive-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.6rem;
+  }
+
+  .drive-items { display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .drive-item {
+    font-size: 0.9rem;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .drive-item::before {
+    content: '→';
+    color: var(--accent);
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .career-path {
+    margin-top: 3rem;
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .career-path-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .path-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .path-step {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    background: var(--navy-mid);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .path-arrow {
+    color: var(--accent);
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ——— DIFFERENCE ——— */
+  #difference { background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+  .comparison-table {
+    margin-top: 3.5rem;
+    width: 100%;
+    border-collapse: collapse;
+    max-width: 800px;
+  }
+
+  .comparison-table th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    padding: 1rem 2rem;
+    text-align: left;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .comparison-table th:first-child { color: var(--accent); }
+  .comparison-table th:last-child { color: var(--muted); }
+
+  .comparison-table td {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .comparison-table tr:last-child td { border-bottom: none; }
+
+  .comparison-table td:first-child {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .comparison-table td:last-child {
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ——— ABOUT ——— */
+  #about { position: relative; overflow: hidden; }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .about-tagblock {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .about-body p {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body p strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .about-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .value-cell {
+    background: var(--navy-mid);
+    padding: 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .value-cell strong {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ——— SERVICE AREA ——— */
+  #service-area { background: var(--navy-mid); border-top: 1px solid var(--border); }
+
+  .area-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .area-details { margin-top: 2rem; }
+
+  .area-detail-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .area-detail-item:last-child { border-bottom: none; }
+
+  .area-detail-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    min-width: 100px;
+    padding-top: 0.1rem;
+  }
+
+  .area-detail-value {
+    font-size: 0.92rem;
+    color: var(--text);
+  }
+
+  /* Map placeholder */
+  .map-placeholder {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-placeholder svg {
+    width: 80%;
+    height: 80%;
+    opacity: 0.6;
+  }
+
+  /* ——— CONTACT ——— */
+  #contact { border-top: 1px solid var(--border); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .form-group label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 0.9rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238fa3b8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 12px;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(143,163,184,0.4); }
+
+  .contact-info {
+    padding-top: 1rem;
+  }
+
+  .contact-info-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-info-item:last-child { border-bottom: none; }
+
+  .contact-info-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-info-value {
+    font-size: 0.95rem;
+    color: var(--white);
+  }
+
+  /* ——— FOOTER ——— */
+  footer {
+    background: var(--navy);
+    border-top: 1px solid var(--border);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: gap;
+  }
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  .footer-right {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  /* ——— TICKER ——— */
+  .ticker-wrap {
+    background: var(--accent);
+    overflow: hidden;
+    padding: 0.6rem 0;
+  }
+
+  .ticker-track {
+    display: flex;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+
+  .ticker-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy);
+    font-weight: 500;
+    padding: 0 3rem;
+  }
+
+  .ticker-sep {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(10,15,30,0.4);
+    padding: 0 1rem;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ——— ANIMATIONS ——— */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+  .delay-4 { animation-delay: 0.5s; }
+
+  /* ——— SCROLLED REVEAL ——— */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ——— RESPONSIVE ——— */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 6rem 1.5rem 3rem; }
+    .hero-stats { display: none; }
+    .safety-inner, .drive-inner, .about-inner, .area-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ops-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="shield-icon" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 2L4 8V20C4 28.837 10.156 37.032 18 40C25.844 37.032 32 28.837 32 20V8L18 2Z" fill="#1c2a40" stroke="#e8a020" stroke-width="1.5"/>
+      <path d="M18 10L11 13V20C11 24.6 14.2 28.9 18 30.4C21.8 28.9 25 24.6 25 20V13L18 10Z" fill="#e8a020" opacity="0.2"/>
+      <path d="M14 20L17 23L22 17" stroke="#e8a020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-wordmark">AEGIS <span>LOGISTICS</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#principles">Standards</a></li>
+    <li><a href="#operations">Operations</a></li>
+    <li><a href="#safety">Safety</a></li>
+    <li><a href="#drive">Drive With Us</a></li>
+    <li><a href="#service-area">Service Area</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">Amazon DSP Partner · DLI5 Pontoon Beach · Greater St. Louis Metro</div>
+    <h1 class="hero-headline fade-up delay-1">
+      Precision<br/>in Motion.<br/><span class="accent">Protection</span><br/>in Every Mile.
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Aegis Logistics delivers structured, safety-first last-mile operations across the Greater St. Louis Metro — built to scale without compromise.
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a href="#drive" class="btn-primary">Drive With Us</a>
+      <a href="#contact" class="btn-outline">Partner With Us</a>
+    </div>
+  </div>
+  <div class="hero-stats fade-up delay-4">
+    <div class="stat-item">
+      <div class="stat-num">20</div>
+      <div class="stat-label">Active Routes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">43</div>
+      <div class="stat-label">Routes by June '26</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">DLI5</div>
+      <div class="stat-label">Station Code</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Safety Before Speed</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Radical Accountability</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Structured Coaching</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Integrity in All Reporting</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Scalable Systems Over Personality</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Safety Before Speed</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Radical Accountability</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Structured Coaching</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Integrity in All Reporting</span><span class="ticker-sep">◆</span>
+    <span class="ticker-item">Scalable Systems Over Personality</span><span class="ticker-sep">◆</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-tagblock reveal">
+      <div class="section-eyebrow">About Aegis</div>
+      <h2 class="section-title">Not Gig Delivery.<br/>Structured<br/>Logistics.</h2>
+    </div>
+    <div class="about-body reveal">
+      <p>Aegis Logistics LLC is a disciplined, scalable last-mile logistics operator working in partnership with Amazon. We operate from DLI5 Delivery Station in Pontoon Beach, Illinois, serving the Greater St. Louis Metro — and we are building with intention.</p>
+      <p><strong>We are not "another DSP."</strong> We are a professionally managed logistics company structured for multi-site scale, institutional performance standards, and long-term operational excellence.</p>
+      <p>Currently operating <strong>20 dedicated delivery routes</strong>, Aegis is executing Amazon's operational ramp plan to reach <strong>43 routes by June 1, 2026</strong>. Every system, hire, and process decision is designed to support that growth without compromising safety, performance, or culture.</p>
+      <p>Our growth is intentional, structured, and system-driven — ensuring safety, performance, and operational excellence scale together.</p>
+      <div class="about-values">
+        <div class="value-cell"><strong>Mission</strong>Protect performance, people, and promises in every delivery.</div>
+        <div class="value-cell"><strong>Vision</strong>Build a model logistics operation scaled on disciplined systems — not heroics.</div>
+        <div class="value-cell"><strong>Illinois Based</strong>Operating out of Pontoon Beach, IL with St. Louis Metro coverage.</div>
+        <div class="value-cell"><strong>Amazon Partner</strong>Aligned with Amazon's performance standards and growth objectives.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section id="principles">
+  <div class="reveal">
+    <div class="section-eyebrow">Non-Negotiable Standards</div>
+    <h2 class="section-title">Five Operating<br/>Principles</h2>
+    <p class="section-lead">These are not guidelines. They are the standards against which every decision, every hire, and every delivery is measured.</p>
+  </div>
+  <div class="principles-grid reveal">
+    <div class="principle-card">
+      <div class="principle-num">01</div>
+      <div class="principle-title">Safety Before Speed</div>
+      <p class="principle-body">We never sacrifice safety for productivity. Every route, every vehicle, every decision begins with risk assessment. Safety is not a compliance requirement — it is a leadership standard.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">02</div>
+      <div class="principle-title">Radical Accountability</div>
+      <p class="principle-body">Performance is measured. Metrics are reviewed. Coaching is structured. We own our results — individually and collectively — at every level of the organization.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">03</div>
+      <div class="principle-title">Structured Coaching Over Reaction</div>
+      <p class="principle-body">We develop people through mentorship, scorecards, and one-on-one review. Correction is progressive, documented, and fair — not emotional.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">04</div>
+      <div class="principle-title">Integrity in All Reporting</div>
+      <p class="principle-body">Transparent communication with Amazon, drivers, vendors, and leadership. No manipulation of metrics. No hiding incidents. No excuses.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-num">05</div>
+      <div class="principle-title">Scalable Systems Over Personality</div>
+      <p class="principle-body">Aegis is built on process, not heroics. Route optimization, fleet maintenance, telematics, scorecards, financial discipline. If it cannot scale to 43 routes, it does not belong in the system.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section id="safety">
+  <div class="safety-bg"></div>
+  <div class="safety-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Safety Philosophy</div>
+      <h2 class="section-title">Safety Is Our<br/>Operating<br/>Posture.</h2>
+      <p class="section-lead">At Aegis, safety is not a department — it is the lens through which every operational decision is made.</p>
+    </div>
+    <div class="reveal">
+      <div class="safety-philosophy">
+        <blockquote>
+          Every driver deserves to return home safely. Every vehicle represents our reputation. Every mile is a responsibility to the community.
+        </blockquote>
+      </div>
+      <div class="safety-commitments">
+        <div class="commitment-item">Preventative discipline over reactive correction</div>
+        <div class="commitment-item">Data-driven coaching through telematics and scorecards</div>
+        <div class="commitment-item">Daily safety reinforcement before every shift</div>
+        <div class="commitment-item">Confidential reporting without retaliation</div>
+        <div class="commitment-item">Continuous improvement through training and mentorship</div>
+        <div class="commitment-item">Long-term excellence through disciplined, repeatable execution</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATIONS -->
+<section id="operations">
+  <div class="reveal">
+    <div class="section-eyebrow">How We Operate</div>
+    <h2 class="section-title">Four Pillars of<br/>Operational<br/>Excellence</h2>
+    <p class="section-lead">Every function within Aegis is built around repeatable, measurable, scalable systems.</p>
+  </div>
+  <div class="ops-grid reveal">
+    <div class="ops-card">
+      <svg class="ops-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 6L8 14V26C8 34.8 15.1 43 24 46C32.9 43 40 34.8 40 26V14L24 6Z" fill="#e8a020" opacity="0.15" stroke="#e8a020" stroke-width="1.5"/>
+        <path d="M18 26l5 5 8-9" stroke="#e8a020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ops-title">Safety</div>
+      <ul class="ops-list">
+        <li>Daily pre-trip vehicle inspections</li>
+        <li>Telematics oversight and monitoring</li>
+        <li>Structured driver coaching and mentoring</li>
+        <li>Incident review and documentation process</li>
+        <li>Preventative discipline protocols</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <svg class="ops-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="24" width="8" height="18" fill="#e8a020" opacity="0.3" rx="1"/>
+        <rect x="20" y="16" width="8" height="26" fill="#e8a020" opacity="0.5" rx="1"/>
+        <rect x="32" y="8" width="8" height="34" fill="#e8a020" opacity="0.8" rx="1"/>
+        <path d="M8 14l10-8 10 6 10-8" stroke="#e8a020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="ops-title">Performance</div>
+      <ul class="ops-list">
+        <li>Route compliance tracking and review</li>
+        <li>On-time delivery metrics reporting</li>
+        <li>Delivery accuracy and quality scoring</li>
+        <li>Amazon scorecard performance discipline</li>
+        <li>KPI dashboards reviewed weekly</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <svg class="ops-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="20" width="36" height="20" rx="3" fill="#e8a020" opacity="0.15" stroke="#e8a020" stroke-width="1.5"/>
+        <circle cx="15" cy="40" r="4" fill="#e8a020" opacity="0.6"/>
+        <circle cx="33" cy="40" r="4" fill="#e8a020" opacity="0.6"/>
+        <path d="M6 28h36M14 20v-4a2 2 0 012-2h16a2 2 0 012 2v4" stroke="#e8a020" stroke-width="1.5"/>
+      </svg>
+      <div class="ops-title">Fleet Management</div>
+      <ul class="ops-list">
+        <li>Preventative maintenance scheduling</li>
+        <li>Total cost-per-vehicle cost control</li>
+        <li>Asset protection programs</li>
+        <li>GPS and telematics accountability</li>
+        <li>Fleet lifecycle planning</li>
+      </ul>
+    </div>
+    <div class="ops-card">
+      <svg class="ops-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="16" r="8" fill="#e8a020" opacity="0.2" stroke="#e8a020" stroke-width="1.5"/>
+        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#e8a020" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18 28l-4 4M30 28l4 4" stroke="#e8a020" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+      </svg>
+      <div class="ops-title">People & Culture</div>
+      <ul class="ops-list">
+        <li>Clear, documented performance standards</li>
+        <li>Structured coaching culture</li>
+        <li>Performance incentive programs</li>
+        <li>Defined advancement paths</li>
+        <li>Professional development pipeline</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DRIVE WITH US -->
+<section id="drive">
+  <div class="drive-bg"></div>
+  <div class="drive-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Driver Careers</div>
+      <h2 class="section-title">Drive With<br/>Aegis.</h2>
+      <p class="section-lead">We don't create shifts. We build careers. Aegis is looking for drivers who want structure, stability, and a clear path forward.</p>
+      <div class="drive-offer">
+        <div class="drive-section-title">What We Offer</div>
+        <div class="drive-items">
+          <div class="drive-item">Competitive, consistent pay with performance bonuses</div>
+          <div class="drive-item">Structured scheduling — no chaos, no last-minute changes</div>
+          <div class="drive-item">Professional training from day one</div>
+          <div class="drive-item">Organized dispatch environment</div>
+          <div class="drive-item">Clear performance expectations — you always know where you stand</div>
+        </div>
+      </div>
+      <div class="drive-expect" style="margin-top:2rem">
+        <div class="drive-section-title">What We Expect</div>
+        <div class="drive-items">
+          <div class="drive-item">Attendance discipline and schedule reliability</div>
+          <div class="drive-item">Safety-first approach on every route, every day</div>
+          <div class="drive-item">Professional conduct with customers and community</div>
+          <div class="drive-item">Commitment to continuous improvement</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="career-path">
+        <div class="career-path-title">Career Advancement Path</div>
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem">At Aegis, performance opens doors. Here's where your career can go:</p>
+        <div class="path-steps">
+          <div class="path-step">Driver</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Lead Driver</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Dispatch</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Ops Manager</div>
+          <div class="path-arrow">→</div>
+          <div class="path-step">Multi-Route Management</div>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem; background:var(--navy-light); border:1px solid var(--border); padding:2.5rem;">
+        <div class="section-eyebrow" style="margin-bottom:0.75rem">Apply Now</div>
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem">Ready to work with a team that holds itself to a higher standard?</p>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(000) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="you@email.com" />
+          </div>
+          <div class="form-group">
+            <label>CDL / Experience</label>
+            <select>
+              <option value="">Select your experience level</option>
+              <option>No prior delivery experience</option>
+              <option>1–2 years delivery experience</option>
+              <option>3+ years delivery experience</option>
+              <option>Former Amazon driver</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary" style="cursor:pointer;border:none;width:100%;text-align:center;padding:1rem;">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section id="difference">
+  <div class="reveal">
+    <div class="section-eyebrow">Why Aegis</div>
+    <h2 class="section-title">A Different<br/>Standard.</h2>
+    <p class="section-lead">Most DSPs are built around volume. We are built around systems — the only sustainable foundation for scale.</p>
+  </div>
+  <div class="reveal">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Aegis Logistics</th>
+          <th>Typical DSP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Structured, documented coaching programs</td>
+          <td>Reactive discipline, inconsistent feedback</td>
+        </tr>
+        <tr>
+          <td>Fleet accountability with telematics oversight</td>
+          <td>Minimal oversight, deferred maintenance</td>
+        </tr>
+        <tr>
+          <td>Performance culture built on KPI review</td>
+          <td>Volume culture — just run more routes</td>
+        </tr>
+        <tr>
+          <td>Scalable systems independent of any one person</td>
+          <td>Owner-dependent, fragile operations</td>
+        </tr>
+        <tr>
+          <td>Transparent reporting and integrity-first metrics</td>
+          <td>Incentivized to hide incidents or manipulate data</td>
+        </tr>
+        <tr>
+          <td>Clear career advancement paths for drivers</td>
+          <td>Gig work with no upward mobility</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section id="service-area">
+  <div class="area-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Where We Operate</div>
+      <h2 class="section-title">Greater St. Louis<br/>Metro.</h2>
+      <p class="section-lead">Serving communities across the Greater St. Louis Metro with structured, reliable last-mile delivery.</p>
+      <div class="area-details">
+        <div class="area-detail-item">
+          <div class="area-detail-label">Station</div>
+          <div class="area-detail-value">Amazon DLI5 Delivery Station<br/>Pontoon Beach, Illinois</div>
+        </div>
+        <div class="area-detail-item">
+          <div class="area-detail-label">Footprint</div>
+          <div class="area-detail-value">Greater St. Louis Metro Area<br/>Illinois & Missouri Corridors</div>
+        </div>
+        <div class="area-detail-item">
+          <div class="area-detail-label">Routes</div>
+          <div class="area-detail-value">20 active routes today<br/>Scaling to 43 routes by June 1, 2026</div>
+        </div>
+        <div class="area-detail-item">
+          <div class="area-detail-label">Partner</div>
+          <div class="area-detail-value">Amazon Delivery Service Partner<br/>Program (DSP)</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="map-placeholder">
+        <!-- SVG stylized region indicator -->
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Missouri outline stylized -->
+          <path d="M60 60 L340 60 L340 180 Q300 200 280 240 Q260 260 240 260 L60 260 Z" fill="rgba(28,42,64,0.8)" stroke="rgba(232,160,32,0.2)" stroke-width="1"/>
+          <!-- Mississippi River -->
+          <path d="M220 60 Q230 100 225 140 Q220 180 230 220 Q235 240 240 260" stroke="rgba(45,90,142,0.5)" stroke-width="3" stroke-dasharray="4 3" fill="none"/>
+          <!-- St. Louis metro marker -->
+          <circle cx="215" cy="155" r="18" fill="rgba(232,160,32,0.15)" stroke="#e8a020" stroke-width="1.5"/>
+          <circle cx="215" cy="155" r="6" fill="#e8a020"/>
+          <!-- Pulse animation -->
+          <circle cx="215" cy="155" r="18" stroke="#e8a020" stroke-width="1" opacity="0.5">
+            <animate attributeName="r" values="18;30;18" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- DLI5 label -->
+          <rect x="135" y="168" width="60" height="20" rx="3" fill="rgba(10,15,30,0.9)" stroke="rgba(232,160,32,0.4)" stroke-width="1"/>
+          <text x="165" y="182" text-anchor="middle" fill="#e8a020" font-family="monospace" font-size="9" letter-spacing="1">DLI5</text>
+          <!-- Labels -->
+          <text x="110" y="120" fill="rgba(143,163,184,0.6)" font-family="monospace" font-size="10">ILLINOIS</text>
+          <text x="270" y="140" fill="rgba(143,163,184,0.4)" font-family="monospace" font-size="10">MISSOURI</text>
+          <!-- Route lines stylized -->
+          <line x1="215" y1="155" x2="160" y2="130" stroke="rgba(232,160,32,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="215" y1="155" x2="270" y2="135" stroke="rgba(232,160,32,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="215" y1="155" x2="240" y2="200" stroke="rgba(232,160,32,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="215" y1="155" x2="175" y2="195" stroke="rgba(232,160,32,0.2)" stroke-width="1" stroke-dasharray="3 3"/>
+          <circle cx="160" cy="130" r="3" fill="rgba(232,160,32,0.5)"/>
+          <circle cx="270" cy="135" r="3" fill="rgba(232,160,32,0.5)"/>
+          <circle cx="240" cy="200" r="3" fill="rgba(232,160,32,0.5)"/>
+          <circle cx="175" cy="195" r="3" fill="rgba(232,160,32,0.5)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Partner<br/>With Aegis.</h2>
+      <p class="section-lead">Whether you are exploring a partnership, have an operational inquiry, or want to learn more about our standards — we want to hear from you.</p>
+      <div class="contact-info" style="margin-top:2.5rem">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Company</div>
+          <div class="contact-info-value">Aegis Logistics LLC</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Station</div>
+          <div class="contact-info-value">DLI5 · Pontoon Beach, Illinois</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Service Area</div>
+          <div class="contact-info-value">Greater St. Louis Metro</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Amazon DSP Partner</div>
+          <div class="contact-info-value">aegis-logistics.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" />
+        </div>
+        <div class="form-group">
+          <label>Company / Organization</label>
+          <input type="text" placeholder="Your company name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@company.com" />
+        </div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select>
+            <option value="">Select an inquiry type</option>
+            <option>Amazon / Partner Inquiry</option>
+            <option>Employment / Driver Application</option>
+            <option>Vendor / Supplier</option>
+            <option>Media / Press</option>
+            <option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="How can we help?"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="cursor:pointer;border:none;width:100%;text-align:center;padding:1rem;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <svg class="shield-icon" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 2L4 8V20C4 28.837 10.156 37.032 18 40C25.844 37.032 32 28.837 32 20V8L18 2Z" fill="#1c2a40" stroke="#e8a020" stroke-width="1.5"/>
+      <path d="M18 10L11 13V20C11 24.6 14.2 28.9 18 30.4C21.8 28.9 25 24.6 25 20V13L18 10Z" fill="#e8a020" opacity="0.2"/>
+      <path d="M14 20L17 23L22 17" stroke="#e8a020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <div class="nav-wordmark" style="font-size:1.1rem">AEGIS <span style="color:var(--accent)">LOGISTICS</span></div>
+      <div class="footer-copy">© 2026 Aegis Logistics LLC · Pontoon Beach, Illinois · All Rights Reserved</div>
+    </div>
+  </div>
+  <div class="footer-right">
+    <div>Amazon DSP Partner · DLI5</div>
+    <div style="margin-top:0.3rem">Greater St. Louis Metro</div>
+    <div style="margin-top:0.3rem; color:var(--accent)">aegis-logistics.com</div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+    });
+  });
+
+  // Form button feedback
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      const btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Submitted ✓';
+      btn.style.background = '#2d5a8e';
+      btn.style.color = 'var(--white)';
+    });
+  });
+</script>
+</body>
+</html>
