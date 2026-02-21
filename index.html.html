@@ -1175,22 +1175,23 @@
       <div style="margin-top:2.5rem; background:var(--navy-light); border:1px solid var(--border); padding:2.5rem;">
         <div class="section-eyebrow" style="margin-bottom:0.75rem">Apply Now</div>
         <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1.5rem">Ready to work with a team that holds itself to a higher standard?</p>
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" action="https://formspree.io/f/mreaykja" method="POST">
+          <input type="hidden" name="_subject" value="New Driver Application — Aegis Logistics" />
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" placeholder="Your full name" />
+            <input type="text" name="full_name" placeholder="Your full name" />
           </div>
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" placeholder="(000) 000-0000" />
+            <input type="tel" name="phone" placeholder="(000) 000-0000" />
           </div>
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="you@email.com" />
+            <input type="email" name="email" placeholder="you@email.com" />
           </div>
           <div class="form-group">
             <label>CDL / Experience</label>
-            <select>
+            <select name="experience" required>
               <option value="">Select your experience level</option>
               <option>No prior delivery experience</option>
               <option>1–2 years delivery experience</option>
