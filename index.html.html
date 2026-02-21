@@ -1340,36 +1340,40 @@
       </div>
     </div>
     <div class="reveal">
-      <form class="contact-form" onsubmit="return false;">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Your full name" />
-        </div>
-        <div class="form-group">
-          <label>Company / Organization</label>
-          <input type="text" placeholder="Your company name" />
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="you@company.com" />
-        </div>
-        <div class="form-group">
-          <label>Inquiry Type</label>
-          <select>
-            <option value="">Select an inquiry type</option>
-            <option>Amazon / Partner Inquiry</option>
-            <option>Employment / Driver Application</option>
-            <option>Vendor / Supplier</option>
-            <option>Media / Press</option>
-            <option>General Inquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea rows="5" placeholder="How can we help?"></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="cursor:pointer;border:none;width:100%;text-align:center;padding:1rem;">Send Message</button>
-      </form>
+      <form
+  class="contact-form"
+  action="https://formspree.io/f/mreaykja"
+  method="POST">
+
+  <input type="hidden" name="_subject" value="New Driver Application — Aegis Logistics" />
+  <input type="hidden" name="_next" value="https://aegis-logistics.com/thank-you" />
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" name="full_name" placeholder="Your full name" required />
+  </div>
+  <div class="form-group">
+    <label>Phone Number</label>
+    <input type="tel" name="phone" placeholder="(000) 000-0000" required />
+  </div>
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" name="email" placeholder="you@email.com" required />
+  </div>
+  <div class="form-group">
+    <label>CDL / Experience</label>
+    <select name="experience" required>
+      <option value="">Select your experience level</option>
+      <option>No prior delivery experience</option>
+      <option>1–2 years delivery experience</option>
+      <option>3+ years delivery experience</option>
+      <option>Former Amazon driver</option>
+    </select>
+  </div>
+  <button type="submit" class="btn-primary"
+    style="cursor:pointer;border:none;width:100%;text-align:center;padding:1rem;">
+    Submit Application
+  </button>
+</form>
     </div>
   </div>
 </section>
@@ -1435,3 +1439,4 @@
 </script>
 </body>
 </html>
+
